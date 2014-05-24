@@ -1,7 +1,7 @@
 # the name of the target operating system
 set(CMAKE_SYSTEM_NAME Windows)
 
-add_definitions(-D__MSVCRT_VERSION__=0x0601)
+add_definitions(-D__MSVCRT_VERSION__=0x0710)
 
 # which compilers to use for C and C++
 set(CMAKE_C_COMPILER i586-mingw32msvc-gcc)

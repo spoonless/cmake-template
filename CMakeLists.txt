@@ -6,9 +6,10 @@ project(project_template)
 
 option(BUILD_UNITTESTS "Build all unit tests." "1")
 
-# Uncomment the following two lines to activate C++11
-#include(SetCxxStandard)
-#set_cxx_standard(11)
+include(SetCxxStandard)
+set_cxx_standard(11)
+
+find_package( Threads REQUIRED )
 
 if(CMAKE_COMPILER_IS_GNUCXX)
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
@@ -25,12 +26,17 @@ endmacro()
 ###############################################
 # main sources settings
 ###############################################
+include("EmbedG3log")
+
 # necessary for mingw32
 include_directories("src")
 
 add_library(core_sources STATIC
     src/sample.cpp
 )
+
+config_executable(core_sources G3LOG)
+target_link_libraries(core_sources ${CMAKE_THREAD_LIBS_INIT})
 
 ###############################################
 # main executable settings

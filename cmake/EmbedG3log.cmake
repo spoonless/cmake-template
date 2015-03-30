@@ -11,8 +11,8 @@ endif()
 
 ExternalProject_Add(
   project_g3log
-  URL https://github.com/spoonless/g3log/archive/mingw_xcompil.zip
-  URL_MD5 a18aa0802f65e45b5c9679b6f7e04094
+  URL https://github.com/spoonless/g3log/archive/master.zip
+  URL_MD5 d7528946a112a9b07b43e58f8cb59e7f
   PREFIX "${CMAKE_CURRENT_BINARY_DIR}/g3log"
   CMAKE_ARGS -DUSE_FATAL_EXAMPLE=OFF -DCMAKE_BUILD_TYPE=Release ${G3LOG_ADDITIONAL_CMAKE_ARGS}
   INSTALL_COMMAND ""
